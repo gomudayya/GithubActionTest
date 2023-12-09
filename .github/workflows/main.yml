@@ -7,7 +7,7 @@ on:
       
 jobs:
   create-branch:
-    if: contains(github.event.issue.labels.*.name, '🌱 신규 기능')
+    if: contains(github.event.issue.labels.*.name, ' 신규 기능')
     runs-on: ubuntu-latest
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
