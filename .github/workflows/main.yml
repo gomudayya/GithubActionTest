@@ -19,5 +19,4 @@ jobs:
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.3.0
         with:
-          branch: refs/heads/long/branch/name
-          sha: '${{ github.event.pull_request.head.sha }}'
+          branch: refs/heads/feat/be/$ISSUE_NUMBER
