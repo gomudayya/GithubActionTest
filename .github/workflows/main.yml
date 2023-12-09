@@ -7,11 +7,13 @@ on:
       
 jobs:
   create-branch:
+    if: github.event.label.name == 'feature'
     runs-on: ubuntu-latest
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
       GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-      
+
+    
     steps:
       - name: print issue number
         run: echo $ISSUE_NUMBER  
