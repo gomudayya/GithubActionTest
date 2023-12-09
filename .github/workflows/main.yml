@@ -12,12 +12,14 @@ jobs:
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
       GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-
-    
+      
     steps:
+      - name: Set Dynamic Env Variable
+        run: echo "BRNACH_NAME_SECOND_TOKEN=dynamic_value" >> $GITHUB_ENV
+        
       - name: print issue number
         run: echo $ISSUE_NUMBER  
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.3.0
         with:
-          branch: refs/heads/feat/be/${{ env.ISSUE_NUMBER }}
+          branch: refs/heads/feat/${{ env.BRNACH_NAME_SECOND_TOKEN }}/${{ env.ISSUE_NUMBER }}
