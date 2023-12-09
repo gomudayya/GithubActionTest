@@ -1,0 +1,13 @@
+name: create issue branch
+
+on:
+  issues:
+    types:
+      - opened
+      
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print issue number
+        run: echo ${{ github.event.issue.number }}
