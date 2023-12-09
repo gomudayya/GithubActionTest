@@ -19,4 +19,4 @@ jobs:
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.3.0
         with:
-          branch: refs/heads/feat/be/$ISSUE_NUMBER
+          branch: refs/heads/feat/be/${{ env.ISSUE_NUMBER }}
