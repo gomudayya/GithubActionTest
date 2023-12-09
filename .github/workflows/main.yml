@@ -12,10 +12,17 @@ jobs:
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
       GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-      
+
+    #branch name :  /feat/be or fe/#issue number
     steps:
-      - name: Set Dynamic Env Variable
-        run: echo "BRNACH_NAME_SECOND_TOKEN=dynamic_value" >> $GITHUB_ENV
+      - name: Set up dynamic value about branch name (1)
+        if: contains(github.event.issue.labels.*.name, 'BE')
+        run: echo "BRNACH_NAME_SECOND_TOKEN=BE" >> $GITHUB_ENV
+
+      - name: Set up dynamic value about branch name (2)
+        if: contains(github.event.issue.labels.*.name, 'BE')
+        run: echo "BRNACH_NAME_SECOND_TOKEN=BE" >> $GITHUB_ENV
+
         
       - name: print issue number
         run: echo $ISSUE_NUMBER  
