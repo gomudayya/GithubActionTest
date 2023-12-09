@@ -8,6 +8,10 @@ on:
 jobs:
   create-branch:
     runs-on: ubuntu-latest
+    env:
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
     steps:
       - name: print issue number
-        run: echo ${{ github.event.issue.number }}
+        run: echo $ISSUE_NUMBER  
+      - name: create branch
+        run: git checkout feat/be/#$ISSUE_NUMBER
