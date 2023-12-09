@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
+      GITHUB_REPO: ${{ github.repository }}
     steps:
       - name: print issue number
         run: echo $ISSUE_NUMBER  
