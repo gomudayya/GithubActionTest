@@ -11,8 +11,13 @@ jobs:
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
       GITHUB_REPO: ${{ github.repository }}
+      GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+      
     steps:
       - name: print issue number
         run: echo $ISSUE_NUMBER  
-      - name: create branch
-        run: git checkout feat/be/#$ISSUE_NUMBER
+      - name: Create Branch
+        uses: peterjgrainger/action-create-branch@v2.3.0
+        with:
+          branch: 'release-notes'
+          sha: '${{ github.event.pull_request.head.sha }}'
