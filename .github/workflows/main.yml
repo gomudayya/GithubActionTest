@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number }}
-      GITHUB_REPO: ${{ github.repository }}
       GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
       
     steps:
@@ -19,5 +18,5 @@ jobs:
       - name: Create Branch
         uses: peterjgrainger/action-create-branch@v2.3.0
         with:
-          branch: 'release-notes'
+          branch: 'refs/heads/long/branch/name'
           sha: '${{ github.event.pull_request.head.sha }}'
